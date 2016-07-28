@@ -13,3 +13,14 @@ body{
   color: $body-color;
   background-color: $background-color;
 }
+
+a{
+  text-decoration: none;
+  &:hover,&:visited,&:active,&:link{
+    color: #333;
+  }
+
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0.25em;
+}

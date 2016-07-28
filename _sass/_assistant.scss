@@ -1,0 +1,19 @@
+/*====================*/
+/* assistant function */
+/*====================*/
+
+.f-left{
+  float: left;
+}
+.f-right{
+  float: right;
+}
+.clear{
+  &:after{
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+  }
+}
