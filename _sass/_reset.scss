@@ -1,0 +1,15 @@
+/*===================*/
+/* agent style reset */
+/*===================*/
+
+html{
+  box-sizing: border-box;
+  background-color: $background-color;
+}
+
+/* remove body margin */
+body{
+  margin: 0 auto;
+  color: $body-color;
+  background-color: $background-color;
+}
