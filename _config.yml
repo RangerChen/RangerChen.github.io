@@ -15,3 +15,5 @@ github_username:  RangerChen
 weibo_username:  Rangerccx
 # Build settings
 markdown: kramdown
+# timezone setting
+timezone: Asia/Shanghai
