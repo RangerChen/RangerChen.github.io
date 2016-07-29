@@ -1,5 +1,14 @@
 /* default layout set */
-.wrapper{
-  width: $large-screen;
-  margin: 0 auto;
+
+@media screen and (min-width: 1205px){
+  .wrapper{
+    width: $large-screen;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 1204px){
+  .wrapper{
+    width: 96%;
+    margin: 0 auto;
+  }
 }
