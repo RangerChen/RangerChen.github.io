@@ -2,7 +2,20 @@
 /* base style */
 /*============*/
 
+@import "syntax";
 p{
   font-size: 1.125rem;
   line-height: 1.55556;
+}
+.post-list{
+  li{
+    list-style: none;
+  }
+  li + li {
+    border-top: 1px solid #ccc;
+  }
+}
+.post-meta{
+  display: inline-block;
+  margin: 10px 0;
 }

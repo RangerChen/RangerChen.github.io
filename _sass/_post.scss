@@ -1,12 +1,32 @@
-.post-list{
-  li{
-    list-style: none;
-  }
-  li + li {
-    border-top: 1px solid #ccc;
-  }
+.post{
+
 }
-.post-meta{
-  display: inline-block;
-  margin: 10px 0;
+.post-content{
+  a{
+    border-bottom: 1px dotted #2d2f2f;
+    transition: all 1s ease-in-out;
+    position: relative;
+    &:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      height: 1px;
+      background: #aaa;
+      width: 100%;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      -webkit-transform: scaleX(0);
+      transform: scaleX(0);
+    }
+    &:hover{
+      border-bottom: none;
+    }
+    &:hover:before{
+      transform: scaleX(1);
+    }
+  }
+  code{
+
+  }
 }

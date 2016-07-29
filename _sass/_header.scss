@@ -14,8 +14,25 @@
       color: #ddd;
       transition: all 0.2s ease-in-out;
       margin-right: 20px;
+      position: relative;
       &:hover{
         color: #fff;
+      }
+      &:before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        background: #fff;
+        width: 100%;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+      }
+      &:hover:before{
+        transform: scaleX(1);
       }
     }
   }
