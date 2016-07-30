@@ -94,25 +94,31 @@ CSS中已经定义好的选择器，不能随便取名
 
 使用这两个选择器时，CSS3在计算子元素是第奇数个子元素还是第偶数个元素时，就会**只计算同类型元素**
 
+```
         td:nth-of-type(odd) {background-color: yellow;}
         td: nth-of-type(even) {background-color: blue;}
+```
 
 循环使用样式
 nth-child(n)，把参数n改成可循环的an+b的形式，a表示每次循环中共包括几种样式；b表示指定的样式在循环中所在的位置
 如下所示：
 
+```
         li:nth-child(4n+1) {background-color: yellow;}   // 第一个li背景色为 黄色，依次循环
         li:nth-child(4n+2) {background-color: bule;}     // 第二个li背景色为 蓝色……
         li:nth-child(4n+3) {background-color: red;}      // 第三个li背景色为 红色……
         li:nth-child(4n+4) {background-color: green;}    // 第四个li背景色为 绿色……
                                                          // 4n+4可缩写为4n
+```
 
 前面所讲的nth-child(odd)&nth-child(even)可以用如下代码替代：
 
+```
         nth-child(2n+1) {样式}         // 所有正数下来的第奇数个子元素
         nth-child(2n+2) {样式}         // ……第偶数个子元素
         nth-last-child(2n+1) {样式}    // 所有倒数上去的第奇数个子元素
         nth-last-child(2n+2) {样式}    // ……第偶数个子元素
+```
 
 ### only-child选择器
 当某个父元素中只有一个子元素时使用的样式
@@ -171,9 +177,12 @@ nth-child(n)，把参数n改成可循环的an+b的形式，a表示每次循环�
 
 使用方法如下：
 
+```
+
     <子元素> ~<子元素之后的同级兄弟元素> {
         //指定样式
     }
+```
 
 示例代码如下：
 
