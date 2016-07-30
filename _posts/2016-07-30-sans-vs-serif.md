@@ -2,7 +2,7 @@
 layout: post
 title:  "Serif VS Sans Serif"
 date:   2016-07-29 09:40:56
-author: Ranger
+author: Ranger, Hush Please
 overview: font type
 categories: font-type blog-build
 ---
