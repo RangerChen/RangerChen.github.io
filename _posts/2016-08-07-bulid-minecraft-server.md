@@ -88,6 +88,70 @@ wget http://ci.mengcraft.com:8080/job/nukkit/lastSuccessfulBuild/artifact/target
 ```
 本地上传:进入Nukkit官网,下载Nukkit核心文件之后,使用File Zilla来进行上传。
 
+### 2.5启动Minecraft Serve服务
+
+进入nukkit对应的jar文件目录,比如我将文件'nukkit-1.0-SNAPSHOT.jar'放在了 /home/ranger/nukkit目录下,在命令行中键入如下命令
+
+```
+cd /home/ranger/nukkit
+java -jar nukkit-1.0-SNAPSHOT.jar
+```
+这样就将服务启动起来了。初次启动,服务会询问一些问题,例如使用哪种语言,服务将运行在哪个端口等等这些问题,统一使用默认配置就可以了。
+
+## 3.发布服务器
+
+### 3.1检查端口是否对外开放
+
+默认的情况下,minecraft serve服务运行在19132端口。但是云主机的防火墙默认情况下,该端口是不对外开放的。这时候需要我们手动将该端口开放给公网,使得互联网上的所有用户都能访问这个端口。
+
+CentOS7中,使用了新的防火墙firewall,这里我们使用原本可配置的iptables来作为防火墙。
+
+* 3.1.1关闭firewall：在命令行当中键入如下命令:
+
+```
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+```
+
+* 3.1.2安装iptables防火墙,在命令行当中键入如下命令:
+
+```
+yum install iptables-services #安装
+```
+
+* 3.1.3对外开放19132端口：在命令行当中查看和编辑'iptables':
+
+```
+vi /etc/sysconfig/iptables
+```
+在文件中添加如下记录:
+
+```
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 19132 -j ACCEPT #允许19132端口tcp协议通过防火墙
+-A INPUT -m state --state NEW -m tcp -p udp --dport 19132 -j ACCEPT #允许19132端口udp协议通过防火墙
+```
+
+* 3.1.4重启防火墙:在命令行当中键入如下命令
+
+```
+service iptables save #保存刚才的更改
+service iptables restart #重启启动iptables服务
+```
+
+### 3.2发布服务器
+
+使用'ifconfig'命令查看服务器的公网IP,在命令行当中键入命令
+
+```
+ifconfig
+```
+就可以查看服务器的公网IP了,比如我这里我的公网IP为120.25.96.xxx,我会向我的小伙伴们宣布,我的服务器的地址是 120.25.96.xxx:19132,大家可以通过连接这个地址来加入服务器,一起玩耍。
+
+至此,我们已经可以对外提供Minecraft Serve服务了。
+
+### *更优雅的发布自己的服务器:
+
+有的时候,我们并不像暴露自己的服务器IP给大家,而是通过一个网址来让大家连接到服务器来。这时候,就需要我们自己拥有一个个性的域名。比如我这里使用的域名是 xianyu.io。那我就需要在我的DNS解析记录当中添加一条A类解析条目。比如让host:minecraft指向IP:120.25.96.xxx,这样我们就不用再记那么麻烦而又冗长的IP了,只需要告诉小伙伴们,通过连接minecraft.xianyu.io:19132就可以了。而且,使用域名的另外一个优点就是,当我们的服务器IP更换了之后,我们只需要更改自己的DNS解析记录就可以了,用户不需用做任何改动,一样能继续进行游戏。
 
 
 ### 一些问答:
