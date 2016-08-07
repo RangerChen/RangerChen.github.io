@@ -6,9 +6,8 @@
   
   a{
     border-bottom: 1px dotted #2d2f2f;
-    transition: all 1s ease-in-out;
-    position: relative;
-    &:before{
+    /*position: relative;*/
+    /*&:before{
       content: "";
       position: absolute;
       left: 0;
@@ -20,13 +19,13 @@
       transition: all 0.3s ease-in-out;
       -webkit-transform: scaleX(0);
       transform: scaleX(0);
-    }
+    }*/
     &:hover{
-      border-bottom: none;
+      border-bottom: 1px solid #ccc;
     }
-    &:hover:before{
+    /*&:hover:before{
       transform: scaleX(1);
-    }
+    }*/
   }
   code{
 
